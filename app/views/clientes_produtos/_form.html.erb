@@ -1,0 +1,28 @@
+<%= form_with(model: clientes_produto) do |form| %>
+  <% if clientes_produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clientes_produto.errors.count, "error") %> prohibited this clientes_produto from being saved:</h2>
+
+      <ul>
+        <% clientes_produto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-6">
+    <%= form.label :cliente_id, "Cliente",  :class => 'control-label'%>
+    <%= form.collection_select :cliente_id, Cliente.order(:nome) , :id, :nome, {:prompt => 'Selecionar'}, :class => 'form-control' %>                
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :produto_id, "produto",  :class => 'control-label'%>
+    <%= form.collection_select :produto_id, Produto.order(:nome) , :id, :nome, {:prompt => 'Selecionar'}, :class => 'form-control' %>       
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
