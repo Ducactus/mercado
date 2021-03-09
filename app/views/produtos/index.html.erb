@@ -22,7 +22,11 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @produtos %> 
 <br>
 
+<div class="btn">
+  <%= paginate @produtos, window: 2 %>  
+</div>
+
+<br>
 <%= link_to 'Adicionar Produto', new_produto_path, class: "btn btn-info " %>

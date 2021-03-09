@@ -62,7 +62,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container center-block">
 
-      <a class="navbar-brand" href="#">Mercado</a>
+      <a class="navbar-brand" href="/produtos" style="color: #4eb249;">Mercado</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -99,8 +99,8 @@
         <%= link_to "Registrar-se", new_user_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
-    <div class="container center-block">
 
+    <div class="container center-block">
       <%= yield %>
     </div>
   </body>
