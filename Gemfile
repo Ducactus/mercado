@@ -62,3 +62,6 @@ gem "twitter-bootstrap-rails"
 gem 'devise'
 
 gem 'kaminari'
+
+gem 'prawn'
+gem 'prawn-table'

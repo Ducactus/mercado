@@ -15,6 +15,7 @@
               <span><%= link_to 'Ver', produto, class: "btn1 btn-light " %></span>
               <span><%= link_to 'Editar', edit_produto_path(produto), class: "btn1 btn-light " %></span>
               <span><%= link_to 'Deletar', produto, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn1 btn-light " %></span>
+
             </div>
   
           </div>
@@ -30,3 +31,6 @@
 
 <br>
 <%= link_to 'Adicionar Produto', new_produto_path, class: "btn btn-info " %>
+
+
+<button class="btn btn-info" type="button" onclick="javascript: location.href='<%= relatorio_produtos_path(format: "pdf") %>';"><i class="fa fa-file-text-o  "></i> Gerar Relatório</button>

@@ -4,10 +4,22 @@ class ProdutosController < ApplicationController
   # GET /produtos or /produtos.json
   def index
     @produtos = Produto.page(params[:page]).per(6)
+
   end
 
   # GET /produtos/1 or /produtos/1.json
   def show
+    
+    @produtos = Produto.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ProdutoPdf.new(@produtos, view_context)
+        send_data pdf.render, filename: "produtos.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /produtos/new
@@ -56,10 +68,29 @@ class ProdutosController < ApplicationController
     end
   end
 
+  def relatorio
+
+    @produtos = Produto.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ProdutoPdf.new(@produtos, view_context)
+        send_data pdf.render, filename: "produtos.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_produto
-      @produto = Produto.find(params[:id])
+      if params[:id] == 'relatorio' 
+
+      else
+        @produto = Produto.find(params[:id])
+      end
     end
 
     # Only allow a list of trusted parameters through.
