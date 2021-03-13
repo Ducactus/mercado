@@ -1,11 +1,17 @@
 <%= form_with(model: produto) do |form| %>
   <% if produto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+      <h2><%= pluralize(produto.errors.count, "erro impede",plural: "erros impedem") %> esse produto de ser salvo:</h2>
 
       <ul>
         <% produto.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li>
+          <% if error.attribute == :qtd%>
+            <%= error.full_message.sub! "Qtd", "Quantidade" %>
+          <% else %>
+            <%= error.full_message %>
+          <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -15,6 +21,7 @@
     <%= form.label :nome %>
     <%= form.text_field :nome %>
   </div>
+ 
 
   <div class="field">
     <%= form.label :descricao %>
@@ -22,7 +29,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :qtd %>
+    <%= form.label :qtd, "Quantidade" %>
     <%= form.number_field :qtd %>
   </div>
 

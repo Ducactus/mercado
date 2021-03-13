@@ -67,3 +67,14 @@ pt-BR:
       not_saved:
         one: "1 erro impediu que %{resource} fosse salvo(a):"
         other: "%{count} erros impediram que %{resource} fosse salvo(a):"
+  activerecord:
+    errors:
+      models:
+        produto:
+          attributes:
+            nome:
+              taken: "Campo deve ser único." 
+            qtd:
+              not_a_number: "Deve ser um número valido."
+            valor:
+              not_a_number: "Deve ser um número valido."
