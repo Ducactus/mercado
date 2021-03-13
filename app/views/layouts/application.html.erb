@@ -5,50 +5,9 @@
   <title>Mercado</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <style type="text/css">
-      .produtos{
-        position: relative;
-        display: inline-block;
-        margin-top: 15px;
-        margin-right: 15px;
-        padding: 10px;
-        color: white;
-        background-color: #c4c2c2; 
-        border-radius: 10px;
-        border: solid 3px #4eb249;
-        width: 30%;
-        height: 250px;
-
-      }
-      .btn {
-        margin-left: 35%;
-        margin-top: 5%;
-      }
-      h4 {
-        margin-left: 10%;
-        margin-top: 15%;
-      }
-      h3{
-        text-shadow: black 0.1em 0.1em 0.2em;
-
-      }
-      h1 {
-        color: white;
-        text-shadow: black 0.1em 0.1em 0.2em;
-      }
-      body {
-        background-color: #cde7cc;
-      }
-      p {
-        word-break: break-word;
-
-      }
-    </style>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
 
     <title>Mercado</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -56,9 +15,6 @@
     <%= csp_meta_tag %>
 
     
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container center-block">
 
@@ -94,10 +50,7 @@
       <% if user_signed_in? %>
         Logado como: <strong><%= current_user.email %></strong>.
         <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-      <% else %>
-        <%= link_to "Registrar-se", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
       <% end %>
 
     <div class="container center-block">

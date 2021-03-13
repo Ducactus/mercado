@@ -34,3 +34,10 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+.gitlint
+# Ignore vs code
+*.code-workspace
+.vscode
+
+*.sqlite3

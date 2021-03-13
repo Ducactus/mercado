@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_03_08_200430) do
 
-  create_table "clientes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "clientes", charset: "utf8mb4", force: :cascade do |t|
     t.string "nome"
     t.string "email"
     t.string "telefone"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_200430) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "clientes_produtos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "clientes_produtos", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "cliente_id"
     t.bigint "produto_id"
     t.datetime "created_at", precision: 6, null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_200430) do
     t.index ["produto_id"], name: "index_clientes_produtos_on_produto_id"
   end
 
-  create_table "models", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "models", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_200430) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
   end
 
-  create_table "produtos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "produtos", charset: "utf8mb4", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
     t.integer "qtd"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_200430) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
